@@ -1,0 +1,35 @@
+body {
+    background-color: #aacbb7;
+}
+
+.main {
+    margin: 2% 10%;
+    padding: 5%;
+    width:60%;
+    height: 100%;
+    background-color: white;
+}
+
+.penguin {
+    margin: 0px;
+    display: block;
+    float: right;
+    width: 30%;
+    /* margin: 10px; */
+    text-align: center;
+}
+
+.penguin img {
+    /* display: block; */
+    object-fit:contain;
+    width:100%;
+    height: auto;
+    /* height:420px; */
+}
+
+.intro {
+    float:left;
+    width: 70%;
+    /* margin:10px; */
+    text-align: left;
+}
