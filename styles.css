@@ -1,3 +1,13 @@
+:root {
+  --bg: #396345;
+  --card: #f2f0e4;
+  --ink: #16181a;
+  --blue: #1f4e8c;
+  --slate: #3f4a52;
+  --muted: #5c655f;
+  --line: #d8dcd0;
+}
+
 *,
 *::before,
 *::after {
@@ -7,10 +17,12 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: #aacbb7;
+  background-color: var(--bg);
+  color: var(--ink);
   display: flex;
   justify-content: center;
   line-height: 1.5;
+  font-family: "Computer Modern Serif", "Latin Modern Roman", Cambria, Georgia, serif;
 }
 
 .main {
@@ -20,7 +32,8 @@ body {
   padding: 5%;
   width: 100%;
   max-width: 900px;
-  background-color: white;
+  background-color: var(--card);
+  border-radius: 12px;
 }
 
 .site-header {
@@ -28,8 +41,10 @@ body {
 }
 
 .site-header h1 {
-  margin: 0 0 0.4rem;
-  font-size: 1.6rem;
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--ink);
 }
 
 .social-links {
@@ -40,50 +55,53 @@ body {
 .social-button {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  background-color: #000;
-  color: #fff;
+  line-height: 1;
+  gap: 0.3rem;
+  padding: 0.26rem 0.55rem 0.14rem;
+  border-radius: 7px;
+  background-color: #e6e3d4;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.8rem;
 }
 
 .social-button svg {
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  transform: translateY(-1px);
 }
 
 .social-button:hover {
-  background-color: #fff;
-  color: #000;
-  box-shadow: inset 0 0 0 1px #000;
+  background-color: var(--blue);
+  color: var(--card);
 }
 
 .tabs {
   display: flex;
   gap: 1.5rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid var(--line);
   margin-bottom: 1.5rem;
 }
 
 .tab-link {
   background: none;
   border: none;
-  border-bottom: 2px solid transparent;
+  border-bottom: 3px solid transparent;
   font: inherit;
   font-size: 1rem;
-  color: #666;
+  color: var(--muted);
   padding: 0.75rem 0.25rem;
   cursor: pointer;
 }
 
 .tab-link:hover {
-  color: #000;
+  color: var(--slate);
 }
 
 .tab-link[aria-selected="true"] {
-  color: #000;
-  border-bottom-color: #000;
+  color: var(--ink);
+  border-bottom-color: var(--blue);
 }
 
 .tab-panel[hidden] {
@@ -105,13 +123,13 @@ body {
 .penguin img {
   max-width: 100%;
   height: auto;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .penguin figcaption {
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  color: #555;
+  color: var(--muted);
 }
 
 .intro {
@@ -119,10 +137,30 @@ body {
   text-align: left;
 }
 
+.intro p {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.intro p + p {
+  margin-top: 0;
+  /* text-indent: 1.5em; */
+}
+
 .footer {
   text-align: left;
   margin-top: auto;
   padding-top: 2rem;
+}
+
+.footer hr {
+  border: none;
+  border-top: 1px solid var(--ink);
+}
+
+.footer p {
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 /* Stack the intro and penguin on narrow screens */
