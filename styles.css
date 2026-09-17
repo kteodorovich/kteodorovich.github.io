@@ -1,42 +1,82 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #aacbb7;
-    justify-content: center;
-    display: flex;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #aacbb7;
+  display: flex;
+  justify-content: center;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
 }
 
 .main {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    padding: 5%;
-    width:60%;
-    height: 100%;
-    background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 5%;
+  width: 100%;
+  max-width: 900px;
+  background-color: white;
 }
 
 .top {
-    display: flex;
-    align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
 }
 
 .penguin {
-    margin: 0px;
-    flex: 1;
-    text-align: center;
+  margin: 0;
+  flex: 1;
+  text-align: center;
 }
 
 .penguin img {
-    object-fit:contain;
-    width:100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.penguin figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
 }
 
 .intro {
-    flex:2;
-    text-align: left;
+  flex: 2;
+  text-align: left;
 }
 
 .footer {
-    text-align: left;
-    margin-top: auto;
+  text-align: left;
+  margin-top: auto;
+  padding-top: 2rem;
+}
+
+/* Stack the intro and penguin on narrow screens */
+@media (max-width: 600px) {
+  .main {
+    padding: 6% 6% 4%;
+  }
+
+  .top {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .intro {
+    text-align: center;
+  }
+
+  .penguin {
+    max-width: 250px;
+  }
 }
