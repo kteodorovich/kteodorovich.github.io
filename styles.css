@@ -34,22 +34,28 @@ body {
   background-color: var(--bg);
   color: var(--ink);
 
-  font-family: "Computer Modern Serif", "Latin Modern Roman", Cambria, Georgia, serif;
+  font-family:
+    "Computer Modern Serif",
+    "Latin Modern Roman",
+    Cambria,
+    Georgia,
+    serif;
+
   line-height: 1.5;
 }
 
 
 /* ==========================================================================
-   Layout
+   Main Layout
    ========================================================================== */
 
 .main {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
 
   width: min(900px, 100%);
   min-height: 100vh;
+
   margin: 0 auto;
   padding: 5%;
 
@@ -91,6 +97,7 @@ body {
   gap: 0.3rem;
 
   padding: 0.26rem 0.55rem 0.14rem;
+
   border-radius: 7px;
 
   background-color: #e6e3d4;
@@ -98,16 +105,67 @@ body {
 
   font-size: 0.8rem;
   line-height: 1;
+
   text-decoration: none;
 }
 
-.social-button svg {
+
+/*
+   External SVG icons
+*/
+
+.social-button img {
+  display: block;
+
   width: 12px;
   height: 12px;
-  flex-shrink: 0;
+
+  flex: 0 0 12px;
+
+  object-fit: contain;
 
   transform: translateY(-1px);
 }
+
+
+/*
+   LinkedIn is blue in the source SVG.
+   Make it black in its normal state.
+*/
+
+.social-button .linkedin-icon {
+  filter: grayscale(1) brightness(0);
+}
+
+
+/*
+   Make both external SVG icons white on hover.
+*/
+
+.social-button:hover img {
+  filter: brightness(0) invert(1);
+}
+
+
+/*
+   Resume SVG
+*/
+
+.social-button svg {
+  display: block;
+
+  width: 12px;
+  height: 12px;
+
+  flex: 0 0 12px;
+
+  transform: translateY(-1px);
+}
+
+
+/*
+   Hover state
+*/
 
 .social-button:hover {
   background-color: var(--blue);
@@ -124,6 +182,7 @@ body {
   gap: 1.5rem;
 
   margin-bottom: 1.5rem;
+
   border-bottom: 2px solid var(--line);
 }
 
@@ -131,6 +190,7 @@ body {
   display: inline-block;
 
   padding: 0.75rem 0.25rem;
+
   border: none;
   border-bottom: 3px solid transparent;
 
@@ -139,6 +199,7 @@ body {
 
   font: inherit;
   font-size: 1rem;
+
   text-decoration: none;
 
   cursor: pointer;
@@ -162,6 +223,45 @@ body {
   width: 100%;
 }
 
+.document {
+  font-family:
+    "Computer Modern Serif",
+    "Latin Modern Roman",
+    Cambria,
+    Georgia,
+    serif;
+
+  line-height: 1.5;
+}
+
+.document h1 {
+  margin: 0 0 1rem;
+
+  font-size: 1.8rem;
+}
+
+.document h2 {
+  margin: 1.75rem 0 0.5rem;
+
+  font-size: 1.4rem;
+}
+
+.document h3 {
+  margin: 1.25rem 0 0.4rem;
+
+  font-size: 1.15rem;
+}
+
+.document p {
+  margin: 0 0 0.8rem;
+}
+
+.document ul,
+.document ol {
+  margin: 0 0 1rem;
+  padding-left: 2rem;
+}
+
 
 /* ==========================================================================
    Home
@@ -170,6 +270,7 @@ body {
 .top {
   display: flex;
   align-items: flex-start;
+
   gap: 2rem;
 }
 
@@ -195,6 +296,7 @@ body {
 
 .penguin {
   flex: 1;
+
   margin: 0;
 
   text-align: center;
@@ -205,8 +307,12 @@ body {
 }
 
 .penguin img {
+  display: block;
+
   max-width: 100%;
   height: auto;
+
+  margin: 0 auto;
 
   border-radius: 8px;
 }
@@ -226,8 +332,12 @@ body {
 
 .figure-grid {
   display: grid;
+
   grid-template-columns: 300px 300px;
+
   justify-content: center;
+  justify-items: center;
+
   gap: 1.5rem;
 
   width: 100%;
@@ -238,6 +348,7 @@ body {
 
   width: 300px;
   max-width: 300px;
+
   margin: 0;
 
   text-align: center;
@@ -248,6 +359,7 @@ body {
 
   width: 300px;
   height: 200px;
+
   margin: 0;
 
   border-radius: 8px;
@@ -256,11 +368,27 @@ body {
 }
 
 .figure-grid figcaption {
+  width: 100%;
+
   margin-top: 0.5rem;
 
   color: var(--muted);
 
   font-size: 0.9rem;
+
+  text-align: center;
+}
+
+
+/* ==========================================================================
+   Iframes
+   ========================================================================== */
+
+.iframe-container {
+  display: flex;
+  justify-content: center;
+
+  text-align: center;
 }
 
 
@@ -270,6 +398,7 @@ body {
 
 .footer {
   margin-top: auto;
+
   padding-top: 2rem;
 
   text-align: left;
@@ -294,14 +423,17 @@ body {
    ========================================================================== */
 
 @media (max-width: 700px) {
+
   .main {
     width: 100%;
+
     padding: 6% 6% 4%;
   }
 
   .top {
     flex-direction: column-reverse;
     align-items: center;
+
     gap: 1.5rem;
 
     text-align: center;
@@ -318,40 +450,17 @@ body {
   .figure-grid {
     grid-template-columns: minmax(0, 1fr);
   }
-}
 
-.document {
-  font-family: "Computer Modern Serif", "Latin Modern Roman", Cambria, Georgia, serif;
-  line-height: 1.5;
-}
+  .figure-grid figure {
+    width: 300px;
+    max-width: 100%;
+  }
 
-.document h1 {
-  font-size: 1.8rem;
-  margin: 0 0 1rem;
-}
+  .figure-grid img {
+    max-width: 100%;
+    height: auto;
 
-.document h2 {
-  font-size: 1.4rem;
-  margin: 1.75rem 0 0.5rem;
-}
+    aspect-ratio: 3 / 2;
+  }
 
-.document h3 {
-  font-size: 1.15rem;
-  margin: 1.25rem 0 0.4rem;
-}
-
-.document p {
-  margin: 0 0 0.8rem;
-}
-
-.document ul,
-.document ol {
-  margin: 0 0 1rem;
-  padding-left: 2rem;
-}
-
-.iframe-container {
-  display: flex;
-  justify-content: center;
-  text-align: center;
 }

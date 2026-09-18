@@ -2,20 +2,21 @@ const REPO = 'kteodorovich/kteodorovich.github.io';
 
 async function fetchLastCommitDate() {
   const dateEl = document.getElementById('last-commit-date');
+  if (!dateEl) return;
 
-  if (!dateEl) {
-    return;
-  }
+  const path = window.location.pathname.replace(/\/+$/, '');
 
-  const path = window.location.pathname;
+  const files = {
+    '': 'index.md',
+    '/piping': 'piping.md',
+    '/projects': 'projects.md',
+    '/thoughts': 'thoughts.md'
+  };
 
-  let file;
+  const file = files[path];
 
-  if (path === '/' || path === '') {
-    file = 'index.md';
-  } else if (path === '/piping/' || path === '/piping') {
-    file = 'piping.md';
-  } else {
+  if (!file) {
+    dateEl.textContent = 'Unavailable';
     return;
   }
 
@@ -25,9 +26,7 @@ async function fetchLastCommitDate() {
     );
 
     if (!response.ok) {
-      throw new Error(
-        `GitHub API responded with status ${response.status}`
-      );
+      throw new Error(`GitHub API responded with status ${response.status}`);
     }
 
     const commits = await response.json();
