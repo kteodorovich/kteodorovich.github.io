@@ -1,3 +1,9 @@
+---
+layout: default
+title: Home
+permalink: /
+---
+
 <header class="top">
   <div class="intro">
     <p>
@@ -6,9 +12,6 @@
     </p>
     <p>
       I also play the <a href="/piping">bagpipes</a>.
-    </p>
-    <p>
-      I'm not entirely sure what my goal with this website is, but it's still a work-in-progress.
     </p>
   </div>
   <div class="penguin">
