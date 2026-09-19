@@ -9,19 +9,19 @@ permalink: /piping/
     </p>
     <div class="figure-grid">
         <figure>
-            <img src="../attachments/redding.jpg" loading="lazy">
+            <img src="{{ '/attachments/redding.jpg' | relative_url }}" alt="Piping at a competition in Redding" width="300" height="200" loading="lazy">
             <figcaption>Redding 2026</figcaption>
         </figure>
         <figure>
-            <img src="../attachments/pleasanton.png" loading="lazy">
+            <img src="{{ '/attachments/pleasanton.png' | relative_url }}" alt="Piping at a competition in Pleasanton" width="300" height="200" loading="lazy">
             <figcaption>Pleasanton 2025</figcaption>
         </figure>
         <figure>
-            <img src="../attachments/costa-mesa.jpg" loading="lazy">
+            <img src="{{ '/attachments/costa-mesa.jpg' | relative_url }}" alt="Piping at a competition in Costa Mesa" width="300" height="200" loading="lazy">
             <figcaption>Costa Mesa 2026</figcaption>
         </figure>
         <figure>
-            <img src="../attachments/playing.jpg" loading="lazy">
+            <img src="{{ '/attachments/playing.jpg' | relative_url }}" alt="Playing bagpipes at Redding" width="300" height="200" loading="lazy">
             <figcaption>Redding 2026</figcaption>
         </figure>
     </div>
