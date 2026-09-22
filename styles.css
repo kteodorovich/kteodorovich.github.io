@@ -49,15 +49,19 @@ body {
    Main Layout
    ========================================================================== */
 
+.main-wrapper {
+  width: 100%;
+}
+
 .main {
   display: flex;
   flex-direction: column;
 
-  width: min(900px, 100%);
+  width: 900px;
   min-height: 100vh;
 
   margin: 0 auto;
-  padding: 5%;
+  padding: 80px;
 
   background-color: var(--card);
   border-radius: 12px;
@@ -282,7 +286,7 @@ body {
 
 .intro p {
   text-align: justify;
-  hyphens: auto;
+  hyphens: none;
 }
 
 .intro p + p {
@@ -333,21 +337,17 @@ body {
 .figure-grid {
   display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
 
   justify-content: center;
-  justify-items: center;
 
-  gap: 1.5rem;
+  gap: 6%;
 
   width: 100%;
 }
 
 .figure-grid figure {
   display: block;
-
-  width: 100%;
-  max-width: 300px;
 
   margin: 0;
 
@@ -424,6 +424,8 @@ body {
 }
 
 .toc .toc-list {
+  counter-reset: toc-counter;
+
   margin: 0;
   padding: 0;
 
@@ -435,6 +437,16 @@ body {
   align-items: baseline;
 
   margin: 0 0 0.4rem;
+}
+
+.toc-item::before {
+  counter-increment: toc-counter;
+  /* content: counter(toc-counter) "."; */
+
+  flex: 0 0 1.4em;
+
+  color: var(--slate);
+  font-variant-numeric: tabular-nums;
 }
 
 .toc-item a {
@@ -482,8 +494,20 @@ body {
    Project Sections
    ========================================================================== */
 
+.projects {
+  counter-reset: project-counter;
+}
+
 .project {
+  counter-increment: project-counter;
+
   scroll-margin-top: 1.5rem;
+}
+
+.project h2::before {
+  /* content: counter(project-counter) ". "; */
+
+  color: var(--slate);
 }
 
 .project-date {
@@ -519,45 +543,25 @@ body {
 
 
 /* ==========================================================================
-   Mobile
+   Mobile — scale the whole card down, keep the layout identical
    ========================================================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
+
+  .main-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
 
   .main {
-    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 
-    padding: 6% 6% 4%;
-  }
+    min-height: auto;
 
-  .top {
-    flex-direction: column-reverse;
-    align-items: center;
-
-    gap: 1.5rem;
-
-    text-align: center;
-  }
-
-  .intro {
-    text-align: center;
-  }
-
-  .penguin {
-    max-width: 250px;
-  }
-
-  .toc-item a {
-    flex-wrap: wrap;
-  }
-
-  .toc-dots {
-    display: none;
-  }
-
-  .toc-date {
-    width: 100%;
-    padding-left: 1.4em;
+    transform: scale(calc(100vw / 900px));
+    transform-origin: top left;
   }
 
 }

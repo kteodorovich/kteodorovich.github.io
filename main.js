@@ -51,3 +51,33 @@ async function fetchLastCommitDate() {
 }
 
 fetchLastCommitDate();
+
+
+/* ==========================================================================
+   Mobile scaling — keep .main-wrapper's height in sync with the scaled
+   (transform: scale()) size of .main, since transform doesn't affect
+   layout flow on its own.
+   ========================================================================== */
+
+function updateMainWrapperHeight() {
+  const wrapper = document.querySelector('.main-wrapper');
+  const main = document.querySelector('.main');
+  if (!wrapper || !main) return;
+
+  if (window.innerWidth <= 900) {
+    const scale = window.innerWidth / 900;
+    wrapper.style.height = (main.offsetHeight * scale) + 'px';
+  } else {
+    wrapper.style.height = 'auto';
+  }
+}
+
+window.addEventListener('load', updateMainWrapperHeight);
+window.addEventListener('resize', updateMainWrapperHeight);
+
+// Re-run once each image finishes loading, since images can change
+// .main's natural height after the initial calculation
+document.querySelectorAll('img').forEach((img) => {
+  if (img.complete) return;
+  img.addEventListener('load', updateMainWrapperHeight);
+});

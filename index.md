@@ -18,7 +18,7 @@ permalink: /
   </div>
   <div class="penguin">
     <figure>
-      <img src="{{ '/attachments/round_penguin.jpg' | relative_url }}" alt="A very round penguin" width="400" height="400" loading="lazy">
+      <img src="{{ '/attachments/round_penguin.jpg' | relative_url }}" alt="A very round penguin" width="200" loading="lazy">
       <figcaption>"katya, why is that penguin so round?"</figcaption>
     </figure>
   </div>
