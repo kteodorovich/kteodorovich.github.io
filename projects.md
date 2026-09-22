@@ -2,6 +2,7 @@
 layout: default
 title: Projects
 permalink: /projects/
+last_modified: 2026-09-19
 ---
 {% assign sorted_projects = site.projects | sort: "date" | reverse %}
 
