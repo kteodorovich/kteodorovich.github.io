@@ -15,7 +15,7 @@ last_modified: 2026-11-16
             <figcaption>Redding 2026</figcaption>
         </figure>
         <figure>
-            <img src="{{ '/attachments/pleasanton.png' | relative_url }}" alt="Piping at a competition in Pleasanton" width="300" height="200" loading="lazy">
+            <img src="{{ '/attachments/pleasanton.jpg' | relative_url }}" alt="Piping at a competition in Pleasanton" width="300" height="200" loading="lazy">
             <figcaption>Pleasanton 2025</figcaption>
         </figure>
         <figure>
